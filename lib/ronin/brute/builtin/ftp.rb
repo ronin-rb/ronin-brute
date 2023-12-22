@@ -55,10 +55,10 @@ module Ronin
           while (username, password = credentials.dequeue)
             socket.puts "USER #{username}"
 
-            if p(socket.gets.chomp) == "331 Please specify the password."
+            if socket.gets.chomp == "331 Please specify the password."
               socket.puts "PASS #{password}"
 
-              if p(socket.gets.chomp) == "230 Login successful."
+              if socket.gets.chomp == "230 Login successful."
                 yield username, password
               end
             end
