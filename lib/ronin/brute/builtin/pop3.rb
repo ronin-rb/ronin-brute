@@ -33,7 +33,7 @@ module Ronin
       ssl_port 995
 
       #
-      # Bruteforces a FTP server.
+      # Bruteforces a POP3 server.
       #
       # @param [Async::LimitedQueue] credentials
       #   The credentials to test.
