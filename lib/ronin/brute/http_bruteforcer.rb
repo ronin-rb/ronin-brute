@@ -19,6 +19,7 @@
 #
 
 require 'ronin/brute/network_bruteforcer'
+require 'ronin/brute/mixins/ssl'
 
 require 'ronin/support/network/http'
 
@@ -28,6 +29,8 @@ module Ronin
     # Base class for all HTTP bruteforcers.
     #
     class HTTPBruteforcer < NetworkBruteforcer
+
+      include Mixins::SSL
 
       port 80
       ssl_port 443
