@@ -73,6 +73,8 @@ module Ronin
         super(host,port,**kwargs,&block)
       end
 
+      alias connect tcp_connect
+
       #
       # Returns the type or kind of bruteforcer.
       #
