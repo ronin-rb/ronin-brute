@@ -169,6 +169,8 @@ module Ronin
         )
       end
 
+      alias connect http_connect
+
     end
   end
 end
