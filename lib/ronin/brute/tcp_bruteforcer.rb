@@ -18,7 +18,7 @@
 # along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/brute/bruteforcer'
+require 'ronin/brute/network_bruteforcer'
 
 require 'ronin/support/network/tcp/mixin'
 
