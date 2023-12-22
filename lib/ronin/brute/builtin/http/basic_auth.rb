@@ -30,6 +30,22 @@ module Ronin
 
         register 'http/basic_auth'
 
+        #
+        # Bruteforces the HTTP server's Basic-Auth.
+        #
+        # @param [Async::LimitedQueue] credentials
+        #   The credentials to test.
+        #
+        # @yield [username, password]
+        #   The given block will be passed each valid username and password
+        #   combination from the credentials list.
+        #
+        # @yieldparam [String] username
+        #   A valid username.
+        #
+        # @yieldparam [String] password
+        #   A valid password.
+        #
         def bruteforce(credentials)
           http = http_connect
 
