@@ -28,6 +28,8 @@ module Ronin
       #
       class BasicAuth < HTTPBruteforcer
 
+        register 'http/basic_auth'
+
         def bruteforce(credentials)
           http = http_connect
 
