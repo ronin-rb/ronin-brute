@@ -18,31 +18,19 @@
 # along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-require 'ronin/brute/tcp_bruteforcer'
+require 'ronin/brute/mailserver_bruteforcer'
 
 module Ronin
   module Brute
     #
     # A POP3 login bruteforcer.
     #
-    class POP3 < TCPBruteforcer
+    class POP3 < MailserverBruteforcer
 
       register 'pop3'
 
       port 110
       ssl_port 995
-
-      param :domain, desc: 'The mailserver domain name'
-
-      #
-      # The email server domain name.
-      #
-      # @return [String]
-      #   The `domain` param or the `host` param.
-      #
-      def domain
-        params[:domain] || params[:host]
-      end
 
       #
       # Bruteforces a FTP server.
@@ -61,7 +49,7 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        tcp_connect do |socket|
+        connect do |socket|
           # ignore the banner
           socket.gets
 
