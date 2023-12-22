@@ -157,15 +157,25 @@ module Ronin
       #
       # Creates a new persistent HTTP connection to the {#host} and {#port}.
       #
-      # @return [Ronin::Support::Network::HTTP]
-      #   The HTTP connection.
+      # @yield [http]
+      #   If a block is given, it will be passed the newly created HTTP
+      #   session object. Once the block returns, the HTTP session will be
+      #   closed.
       #
-      def http_connect
+      # @yieldparam [Ronin::Support::Network::HTTP] http
+      #   The HTTP session object.
+      #
+      # @return [Ronin::Support::Network::HTTP, nil]
+      #   The HTTP session object. If a block is given, then `nil` will be
+      #   returned.
+      #
+      def http_connect(&block)
         Support::Network::HTTP.connect(
           host, port, ssl:        ssl?,
                       proxy:      http_proxy,
                       headers:    http_headers,
                       user_agent: http_user_agent,
+                      &block
         )
       end
 
