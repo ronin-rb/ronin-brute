@@ -55,7 +55,7 @@ module Ronin
       #
       def self.register(bruteforcer_id)
         id(bruteforcer_id)
-        Bruteforcers.register(bruteforcer_id,self)
+        Brute.register(bruteforcer_id,self)
       end
 
       # The usernames to bruteforce.
