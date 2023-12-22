@@ -19,8 +19,7 @@
 #
 
 require 'ronin/brute/network_bruteforcer'
-
-require 'ronin/support/network/ssl/mixin'
+require 'ronin/brute/mixins/ssl'
 
 module Ronin
   module Brute
@@ -29,7 +28,7 @@ module Ronin
     #
     class SSLBruteforcer < NetworkBruteforcer
 
-      include Support::Network::SSL::Mixin
+      include Mixins::SSL
 
       #
       # Returns the type or kind of bruteforcer.
