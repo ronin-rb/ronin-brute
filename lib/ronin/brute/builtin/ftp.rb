@@ -29,6 +29,8 @@ module Ronin
 
       register 'ftp'
 
+      port 21
+
       #
       # Bruteforces a FTP server.
       #
