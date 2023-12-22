@@ -19,6 +19,7 @@
 #
 
 require 'ronin/brute/params/ssl'
+require 'ronin/support/network/ssl/mixin'
 
 module Ronin
   module Brute
