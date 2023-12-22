@@ -33,11 +33,9 @@ module Ronin
     class NetworkBruteforcer < Bruteforcer
 
       include Metadata::Port
-      include Metadata::SSLPort
 
       include Params::Host
       include Params::Port
-      include Params::SSL
 
       #
       # Returns the type or kind of bruteforcer.
