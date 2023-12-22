@@ -1,0 +1,36 @@
+name: ronin-brute
+summary: A micro-framework and tool for bruteforcing credentials.
+description: |
+  ronin-brute is a micro-framework for bruteforcing authentication
+  credentials for various services. ronin-bruteforcers supports HTTP,
+  WebSockets, IMAP, POP3, FTP, and Redis.
+
+license: LGPL-3.0
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: https://ronin-rb.dev/
+has_yard: true
+
+metadata:
+  documentation_uri: https://ronin-rb.dev/docs/ronin-brute
+  source_code_uri:   https://github.com/ronin-rb/ronin-brute
+  bug_tracker_uri:   https://github.com/ronin-rb/ronin-brute/issues
+  changelog_uri:     https://github.com/ronin-rb/ronin-brute/blob/main/ChangeLog.md
+  rubygems_mfa_required: 'true'
+
+generated_files:
+ - man/ronin-brute.1
+
+required_ruby_version: ">= 3.0.0"
+
+dependencies:
+  async-io: ~> 1.0
+  async-http: ~> 0.60
+  wordlist: ~> 1.0
+  # Ronin dependencies:
+  ronin-support: ~> 1.0
+  ronin-core: ~> 0.1
+  ronin-repos: ~> 0.1
+
+development_dependencies:
+  bundler: ~> 2.0
