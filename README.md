@@ -22,6 +22,8 @@ ronin-brute is a micro-framework and tool for bruteforcing network services.
   * HTTP Basic-Auth
   * HTTP login form
   * FTP
+  * POP3
+  * IMAP
 * Supports loading additional bruteforcer modules from Ruby files or from
   installed [3rd-party git repositories][ronin-repos].
 
