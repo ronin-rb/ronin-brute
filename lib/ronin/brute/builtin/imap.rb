@@ -51,7 +51,7 @@ module Ronin
       def bruteforce(credentials)
         connect do |socket|
           # get the capabilities banner
-          capabilities = socket.gets
+          socket.gets
 
           while (username, password = credentials.dequeue)
             socket.puts "A1 LOGIN #{username}@#{domain} #{password}"

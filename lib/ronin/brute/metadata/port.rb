@@ -38,6 +38,9 @@ module Ronin
           bruteforcer_class.extend ClassMethods
         end
 
+        #
+        # Class methods.
+        #
         module ClassMethods
           #
           # Gets or sets the SSL port.

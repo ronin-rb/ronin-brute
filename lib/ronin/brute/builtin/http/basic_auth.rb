@@ -50,7 +50,7 @@ module Ronin
           http = http_connect
 
           request_method = params[:request_method]
-          path = params[:path]
+          path           = params[:path]
 
           while (username, password = credentials.dequeue)
             response = http.request(request_method,path, user:     username,

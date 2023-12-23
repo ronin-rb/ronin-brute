@@ -9,3 +9,6 @@ inherit_gem:
 #
 # ronin-brute specific exceptions
 #
+Layout/ArgumentAlignment:
+  Exclude:
+    - lib/ronin/brute/http_bruteforcer.rb

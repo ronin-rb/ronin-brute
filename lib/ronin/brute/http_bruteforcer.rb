@@ -174,8 +174,7 @@ module Ronin
           host, port, ssl:        ssl?,
                       proxy:      http_proxy,
                       headers:    http_headers,
-                      user_agent: http_user_agent,
-                      &block
+                      user_agent: http_user_agent, &block
         )
       end
 

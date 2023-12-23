@@ -35,6 +35,9 @@ require 'wordlist'
 
 module Ronin
   module Brute
+    #
+    # Base class for all bruteforcers.
+    #
     class Bruteforcer
 
       include Core::Metadata::ID
@@ -222,7 +225,7 @@ module Ronin
 
         bruteforced_credentials = nil
 
-        producer = barrier.async do |producer_task|
+        barrier.async do |producer_task|
           @usernames.each do |username|
             @passwords.each do |password|
               credentials << [username,password]
@@ -235,7 +238,7 @@ module Ronin
           end
         end
 
-        workers = @concurrency.times.map do
+        @concurrency.times.map do
           waiter.async do |worker_task|
             bruteforce(credentials) do |username,password|
               bruteforced_credentials = [username, password]
@@ -277,7 +280,7 @@ module Ronin
         bruteforced_credentials = []
         bruteforced_usernames   = Set.new
 
-        producer = task.async do |producer_task|
+        task.async do |producer_task|
           @usernames.each do |username|
             @passwords.each do |password|
               # skip the username if it's already been bruteforced
@@ -293,7 +296,7 @@ module Ronin
           end
         end
 
-        workers = @concurrency.times.map do
+        @concurrency.times do
           waiter.async do |worker_task|
             bruteforce(credentials) do |username,password|
               yield username, password if block_given?
