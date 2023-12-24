@@ -13,7 +13,9 @@ Layout/ArgumentAlignment:
   Exclude:
     - lib/ronin/brute/http_bruteforcer.rb
 
-# we actually need to ignore the Async::TimeoutError exception here
-Lint/SuppressedException:
+# we actually need to ignore network exceptions generated while bruteforcing
+Lint/SuppressedException: { Enabled: false }
+
+Lint/EmptyBlock:
   Exclude:
-    - lib/ronin/brute/mixins/login_timeout.rb
+    - lib/ronin/brute/builtin/ssh.rb
