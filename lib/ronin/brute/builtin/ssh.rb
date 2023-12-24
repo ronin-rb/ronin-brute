@@ -59,6 +59,7 @@ module Ronin
 
           config:          false,
           verify_host_key: :never,
+          use_agent:       false,
           forward_agent:   false,
           auth_methods:    %w[password],
           non_interactive: true
