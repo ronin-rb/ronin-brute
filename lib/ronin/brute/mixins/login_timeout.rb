@@ -24,6 +24,11 @@ module Ronin
       #
       # Adds methods for dealing with login timeouts.
       #
+      # ## Params
+      #
+      # * `login_timeout` (`Integer`) - the maximum limit to wait for a login
+      #   response. Defaults to 2.
+      #
       # ## Example
       #
       #     include Mixins::LoginTimeout

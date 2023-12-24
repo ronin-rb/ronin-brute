@@ -24,7 +24,9 @@ module Ronin
   module Brute
     module Params
       #
-      # Adds the `port` param to a bruteforcer class.
+      # Adds the `port` param to a bruteforcer class. Defaults to the
+      # {Metadata::Port::ClassMethods#port port} attribute of the bruteforcer
+      # class.
       #
       # ## Example
       #

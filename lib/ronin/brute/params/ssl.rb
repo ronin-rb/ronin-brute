@@ -25,7 +25,9 @@ module Ronin
   module Brute
     module Params
       #
-      # Adds a `ssl` param.
+      # Adds a `ssl` param. Will default to true if the `port` param matches
+      # the {Metadata::SSLPort::ClassMethods#ssl_port ssl_port} attribute of the
+      # bruteforcer class.
       #
       # ## Example
       #
