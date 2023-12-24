@@ -25,6 +25,7 @@ ronin-brute is a micro-framework and tool for bruteforcing network services.
   * POP3
   * IMAP
   * MySQL
+  * PostgreSQL
   * Telnet
   * SSH
 * Supports loading additional bruteforcer modules from Ruby files or from
@@ -117,6 +118,7 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 * [net-telnet] ~> 0.2
 * [net-ssh] ~> 7.2
 * [ruby-mysql] ~> 4.1
+* [postgres-pr] ~> 0.7
 * [wordlist] ~> 1.0
 * [ronin-support] ~> 1.0
 * [ronin-core] ~> 0.2
@@ -175,6 +177,7 @@ along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 [net-telnet]: https://github.com/ruby/net-telnet#readme
 [net-ssh]: https://github.com/net-ssh/net-ssh#readme
 [ruby-mysql]: https://gitlab.com/tmtms/ruby-mysql#readme
+[postgres-pr]: https://github.com/mneumann/postgres-pr#readme
 [wordlist]: https://github.com/postmodern/wordlist.rb#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
 [ronin-core]: https://github.com/ronin-rb/ronin-core#readme
