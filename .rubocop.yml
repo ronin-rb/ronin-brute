@@ -12,3 +12,8 @@ inherit_gem:
 Layout/ArgumentAlignment:
   Exclude:
     - lib/ronin/brute/http_bruteforcer.rb
+
+# we actually need to ignore the Async::TimeoutError exception here
+Lint/SuppressedException:
+  Exclude:
+    - lib/ronin/brute/mixins/login_timeout.rb
