@@ -45,7 +45,8 @@ module Ronin
         end
 
         #
-        # Opens a new SSL connection to the {#host} and {#port}.
+        # Opens a new SSL connection to the {Params::Host#host host} and
+        # {Params::Port#port port}.
         #
         # @yield [ssl_socket]
         #   The given block will be passed the new SSL socket. Once the block
@@ -63,8 +64,9 @@ module Ronin
         end
 
         #
-        # Opens either a TCP or SSL connection to {#host} and {#port}.
-        # If {#port} is the SSL port, then an SSL connection will be opened.
+        # Opens either a TCP or SSL connection to {Params::Host#host host} and
+        # {Params::Port#port port}. If {Params::Port#port port} is the SSL port,
+        # then an SSL connection will be opened.
         #
         # @yield [ssl_socket]
         #   The given block will be passed the new SSL socket. Once the block
