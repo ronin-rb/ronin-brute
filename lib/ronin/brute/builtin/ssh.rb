@@ -57,9 +57,10 @@ module Ronin
         options = {
           port: port,
 
-          config:         false,
-          forward_agent:  false,
-          auth_methods:   %w[password],
+          config:          false,
+          verify_host_key: :never,
+          forward_agent:   false,
+          auth_methods:    %w[password],
           non_interactive: true
         }
 
