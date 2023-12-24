@@ -57,6 +57,8 @@ module Ronin
         options = {
           port: port,
 
+          config:         false,
+          forward_agent:  false,
           auth_methods:   %w[password],
           non_interactive: true
         }
@@ -64,18 +66,14 @@ module Ronin
         while (username, password = credentials.dequeue)
           options[:password] = password
 
-          valid_login = false
+          valid_login = login_timeout do
+            Net::SSH.start(host,username,options) { |ssh| }
 
-          login_timeout do
-            begin
-              Net::SSH.start(host,username,options) do |ssh|
-                valid_login = true
-              end
-            rescue SystemCallError,
-                   EOFError,
-                   Net::SSH::AuthenticationFailed,
-                   Net::SSH::Disconnect
-            end
+            true
+          rescue SystemCallError,
+                 EOFError,
+                 Net::SSH::AuthenticationFailed,
+                 Net::SSH::Disconnect
           end
 
           if valid_login
