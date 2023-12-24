@@ -12,6 +12,7 @@ inherit_gem:
 Layout/ArgumentAlignment:
   Exclude:
     - lib/ronin/brute/http_bruteforcer.rb
+    - lib/ronin/brute/builtin/http/login.rb
 
 # we actually need to ignore network exceptions generated while bruteforcing
 Lint/SuppressedException: { Enabled: false }
