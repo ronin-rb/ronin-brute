@@ -38,7 +38,7 @@ module Ronin
       login_timeout 2
 
       #
-      # Bruteforces a SSH server.
+      # Bruteforces a Telnet server.
       #
       # @param [Async::LimitedQueue] credentials
       #   The credentials to test.
