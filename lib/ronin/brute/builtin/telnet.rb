@@ -54,15 +54,10 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        options = {
-          port: port,
-
-          auth_methods:   %w[password],
-          non_interactive: true
-        }
+        options = {'Host' => host, 'Port' => port}
 
         while (username, password = credentials.dequeue)
-          telnet = Net::Telnet.new('Host' => self.host, 'Port' => self.port)
+          telnet = Net::Telnet.new(options)
 
           response = login_timeout do
             telnet.login(username,password)
