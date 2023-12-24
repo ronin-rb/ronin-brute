@@ -20,6 +20,7 @@
 
 require 'ronin/brute/tcp_bruteforcer'
 require 'ronin/brute/mixins/login_timeout'
+require 'ronin/brute/params/database'
 
 require 'mysql'
 
@@ -31,14 +32,12 @@ module Ronin
     class MySQL < TCPBruteforcer
 
       include Mixins::LoginTimeout
+      include Params::Database
 
       register 'mysql'
 
       port 3306
       login_timeout 4
-
-      param :database, required: true,
-                       desc:     'The database name to connect to'
 
       #
       # Bruteforces a MySQL server.
