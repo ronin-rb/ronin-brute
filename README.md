@@ -24,6 +24,7 @@ ronin-brute is a micro-framework and tool for bruteforcing network services.
   * FTP
   * POP3
   * IMAP
+  * SSH
 * Supports loading additional bruteforcer modules from Ruby files or from
   installed [3rd-party git repositories][ronin-repos].
 
@@ -62,6 +63,7 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 * [Ruby] >= 3.0.0
 * [async-io] ~> 1.0
 * [async-http] ~> 0.60
+* [net-ssh] ~> 7.2
 * [wordlist] ~> 1.0
 * [ronin-support] ~> 1.0
 * [ronin-core] ~> 0.1
@@ -116,6 +118,7 @@ along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 [Ruby]: https://www.ruby-lang.org
 [async-io]: https://github.com/socketry/async-io#readme
 [async-http]: https://github.com/socketry/async-http#readme
+[net-ssh]: https://github.com/net-ssh/net-ssh#readme
 [wordlist]: https://github.com/postmodern/wordlist.rb#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
 [ronin-core]: https://github.com/ronin-rb/ronin-core#readme
