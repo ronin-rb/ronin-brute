@@ -19,6 +19,7 @@
 #
 
 require 'ronin/brute/mailserver_bruteforcer'
+require 'ronin/brute/mixins/login_timeout'
 
 module Ronin
   module Brute
@@ -27,10 +28,13 @@ module Ronin
     #
     class POP3 < MailserverBruteforcer
 
+      include Mixins::LoginTimeout
+
       register 'pop3'
 
       port 110
       ssl_port 995
+      login_timeout 5
 
       #
       # Bruteforces a POP3 server.
@@ -49,17 +53,20 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        connect do |socket|
-          # ignore the banner
-          socket.gets
+        while (username, password = credentials.dequeue)
+          connect do |socket|
+            # ignore the banner
+            socket.gets
 
-          while (username, password = credentials.dequeue)
             socket.puts "USER #{username}@#{domain}"
+            response = socket.gets
 
-            if socket.gets.chomp == "+OK"
+            if response.chomp == "+OK"
               socket.puts "PASS #{password}"
 
-              if socket.gets.chomp == "+OK Logged in."
+              response = login_timeout { socket.gets }
+
+              if response && response.chomp == "+OK Logged in."
                 yield username, password
               end
             end

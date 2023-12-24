@@ -19,6 +19,7 @@
 #
 
 require 'ronin/brute/mailserver_bruteforcer'
+require 'ronin/brute/mixins/login_timeout'
 
 module Ronin
   module Brute
@@ -27,10 +28,13 @@ module Ronin
     #
     class IMAP < MailserverBruteforcer
 
+      include Mixins::LoginTimeout
+
       register 'imap'
 
       port 143
       ssl_port 993
+      login_timeout 7
 
       #
       # Bruteforces an IMAP server.
@@ -49,14 +53,16 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        connect do |socket|
-          # get the capabilities banner
-          socket.gets
+        while (username, password = credentials.dequeue)
+          connect do |socket|
+            # get the capabilities banner
+            socket.gets
 
-          while (username, password = credentials.dequeue)
             socket.puts "A1 LOGIN #{username}@#{domain} #{password}"
 
-            if socket.gets.chomp =~ /^A1 OK \[[^\]]+\] Logged in$/
+            response = login_timeout { socket.gets }
+
+            if response && response.chomp =~ /^A1 OK \[[^\]]+\] Logged in$/
               yield username, password
             end
           end

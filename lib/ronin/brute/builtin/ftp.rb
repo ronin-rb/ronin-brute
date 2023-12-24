@@ -19,6 +19,7 @@
 #
 
 require 'ronin/brute/tcp_bruteforcer'
+require 'ronin/brute/mixins/login_timeout'
 
 module Ronin
   module Brute
@@ -27,9 +28,12 @@ module Ronin
     #
     class FTP < TCPBruteforcer
 
+      include Mixins::LoginTimeout
+
       register 'ftp'
 
       port 21
+      login_timeout 2
 
       #
       # Bruteforces a FTP server.
@@ -48,17 +52,19 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        tcp_connect do |socket|
-          # ignore the banner
-          socket.gets
+        while (username, password = credentials.dequeue)
+          tcp_connect do |socket|
+            # ignore the banner
+            socket.gets
 
-          while (username, password = credentials.dequeue)
             socket.puts "USER #{username}"
 
             if socket.gets.chomp == "331 Please specify the password."
               socket.puts "PASS #{password}"
 
-              if socket.gets.chomp == "230 Login successful."
+              response = login_timeout { socket.gets }
+
+              if response && response.chomp == "230 Login successful."
                 yield username, password
               end
             end
