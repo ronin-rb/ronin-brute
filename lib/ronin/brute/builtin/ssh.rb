@@ -35,7 +35,7 @@ module Ronin
       register 'ssh'
 
       port 22
-      login_timeout 3
+      login_timeout 4
 
       #
       # Bruteforces a SSH server.
