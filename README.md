@@ -124,7 +124,7 @@ along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 [async-http]: https://github.com/socketry/async-http#readme
 [net-telnet]: https://github.com/ruby/net-telnet#readme
 [net-ssh]: https://github.com/net-ssh/net-ssh#readme
-[mysql]: https://gitlab.com/tmtms/ruby-mysql#readme
+[ruby-mysql]: https://gitlab.com/tmtms/ruby-mysql#readme
 [wordlist]: https://github.com/postmodern/wordlist.rb#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme
 [ronin-core]: https://github.com/ronin-rb/ronin-core#readme
