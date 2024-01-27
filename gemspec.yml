@@ -20,6 +20,7 @@ metadata:
 
 generated_files:
  - man/ronin-brute.1
+ - man/ronin-brute-completion.1
  - man/ronin-brute-list.1
  - man/ronin-brute-show.1
 
