@@ -20,6 +20,8 @@ metadata:
 
 generated_files:
  - man/ronin-brute.1
+ - man/ronin-brute-list.1
+ - man/ronin-brute-show.1
 
 required_ruby_version: ">= 3.0.0"
 
