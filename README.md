@@ -63,6 +63,7 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 ## Requirements
 
 * [Ruby] >= 3.1.0
+* [async] ~> 2.0
 * [async-io] ~> 1.0
 * [async-http] ~> 0.60
 * [net-telnet] ~> 0.2
@@ -120,6 +121,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 
 [Ruby]: https://www.ruby-lang.org
+[async]: https://github.com/socketry/async#readme
 [async-io]: https://github.com/socketry/async-io#readme
 [async-http]: https://github.com/socketry/async-http#readme
 [net-telnet]: https://github.com/ruby/net-telnet#readme
