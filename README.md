@@ -70,7 +70,7 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 * [ruby-mysql] ~> 4.1
 * [wordlist] ~> 1.0
 * [ronin-support] ~> 1.0
-* [ronin-core] ~> 0.1
+* [ronin-core] ~> 0.2
 * [ronin-repos] ~> 0.1
 
 ## Install
