@@ -62,7 +62,7 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 
 ## Requirements
 
-* [Ruby] >= 3.0.0
+* [Ruby] >= 3.1.0
 * [async-io] ~> 1.0
 * [async-http] ~> 0.60
 * [net-telnet] ~> 0.2
