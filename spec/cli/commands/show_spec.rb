@@ -46,7 +46,6 @@ describe Ronin::Brute::CLI::Commands::Show do
         end
       end
     end
-
   end
 
   describe "#print_bruteforcer_usage" do
