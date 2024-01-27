@@ -238,7 +238,7 @@ module Ronin
           end
         end
 
-        @concurrency.times.map do
+        @concurrency.times do
           waiter.async do |worker_task|
             bruteforce(credentials) do |username,password|
               bruteforced_credentials = [username, password]
