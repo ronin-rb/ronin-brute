@@ -55,7 +55,7 @@ module Ronin
 
       param :user_agent, Enum.new(HTTP_USER_AGENT_ALIASES), desc: 'The HTTP User-Agent to select'
 
-      param :raw_user_agent, desc: 'The raw HTTP User-Agent string to use'
+      param :user_agent_string, desc: 'The raw HTTP User-Agent string to use'
 
       param :path, required: true,
                    default:  '/',
@@ -127,7 +127,7 @@ module Ronin
       # @api private
       #
       def http_user_agent
-        params[:raw_user_agent] || params[:user_agent]
+        params[:user_agent_string] || params[:user_agent]
       end
 
       #
