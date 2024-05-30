@@ -39,3 +39,5 @@ CommandKit::Completion::Task.new(
   class_name:  'Ronin::Brute::CLI',
   output_file: 'data/completions/ronin-brute'
 )
+
+task :setup => %w[man command_kit:completion]
