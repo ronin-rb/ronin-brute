@@ -141,24 +141,24 @@ module Ronin
           # Loads a wordlist of usernames from the `--usernames` option.
           #
           def load_usernames
-            unless options[:usernames]
+            if (file = options[:usernames])
+              @usernames = Wordlist.open(file)
+            else
               print_error "must specify -U,--usernames option"
               exit(1)
             end
-
-            @usernames = Wordlist.open(options[:usernames])
           end
 
           #
           # Loads a wordlist of passwords from the `--passwords` option.
           #
           def load_passwords
-            unless options[:passwords]
+            if (file = options[:passwords])
+              @passwords = Wordlist.open(file)
+            else
               print_error "must specify -P,--passwords option"
               exit(1)
             end
-
-            @passwords = Wordlist.open(options[:passwords])
           end
 
           #
@@ -171,8 +171,8 @@ module Ronin
               params:    @params
             }
 
-            if options[:concurrency]
-              kwargs[:concurrency] = options[:concurrency]
+            if (concurrency = options[:concurrency])
+              kwargs[:concurrency] = concurrency
             end
 
             super(**kwargs)
