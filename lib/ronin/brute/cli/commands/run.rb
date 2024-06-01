@@ -100,6 +100,16 @@ module Ronin
           #   * `:all` - finds all valid username and password combinations.
           attr_reader :mode
 
+          # The usernames wordlist.
+          #
+          # @return [Wordlist, nil]
+          attr_reader :usernames
+
+          # The passwords wordlist.
+          #
+          # @return [Wordlist, nil]
+          attr_reader :passwords
+
           #
           # Initializes the `ronin-brute run` command.
           #
