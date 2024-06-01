@@ -56,7 +56,7 @@ describe Ronin::Brute::HTTPBruteforcer do
     end
   end
 
-  module TestHTTPBruteforcer 
+  module TestHTTPBruteforcer
     class TestBruteforcer < Ronin::Brute::HTTPBruteforcer
     end
   end
