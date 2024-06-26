@@ -44,6 +44,12 @@ Loads a bruteforcer and runs it against a target.
 `-h`, `--help`
 : Prints help information.
 
+## EXAMPLES
+
+Run the `ftp` bruteforcer against a host:
+
+    $ ronin-brute run ftp -U usernames.txt -P passwords.txt -p host=example.com
+
 ## AUTHOR
 
 Postmodern <postmodern.mod3@gmail.com>

@@ -90,6 +90,10 @@ module Ronin
 
           description 'Loads and runs a bruteforcer'
 
+          examples [
+            'ftp -U usernames.txt -P passwords.txt -p host=example.com'
+          ]
+
           man_page 'ronin-brute-run.1'
 
           # The bruteforcer mode.
