@@ -3,7 +3,8 @@ summary: A micro-framework and tool for bruteforcing credentials.
 description: |
   ronin-brute is a micro-framework for bruteforcing authentication
   credentials for various services. ronin-bruteforcers supports HTTP,
-  WebSockets, IMAP, POP3, FTP, and Redis.
+  WebSockets, IMAP, POP3, FTP, and Redis. Uses asynchronous I/O and fibers for
+  concurrent bruteforcing.
 
 license: LGPL-3.0
 authors: Postmodern

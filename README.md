@@ -16,7 +16,7 @@ ronin-brute is a micro-framework and tool for bruteforcing network services.
 
 ## Features
 
-* Uses asynchronous I/O and fibers.
+* Uses asynchronous I/O and fibers for concurrent bruteforcing.
 * Supports defining new bruteforcer modules as plain old Ruby class.
 * Supports builtin bruteforcers for:
   * HTTP Basic-Auth
