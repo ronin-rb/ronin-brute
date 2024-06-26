@@ -34,6 +34,54 @@ ronin-brute is a micro-framework and tool for bruteforcing network services.
 
 ```shell
 $ ronin-brute
+Usage: ronin-brute [options] [COMMAND [ARGS...]]
+
+Options:
+    -V, --version                    Prints the version and exits
+    -h, --help                       Print help information
+
+Arguments:
+    [COMMAND]                        The command name to run
+    [ARGS ...]                       Additional arguments for the command
+
+Commands:
+    completion
+    help
+    list
+    run
+    show
+```
+
+List available bruteforcers:
+
+```
+$ ronin-brute list
+  ftp
+  http/basic_auth
+  http/login
+  imap
+  mysql
+  pop3
+  ssh
+  telnet
+```
+
+Install a 3rd-party repository of bruteforcers:
+
+```shell
+$ ronin-repos install https://github.com/user/bruteforcers.git
+```
+
+Print additional information about a specific bruteforcer:
+
+```shell
+$ ronin-brute show NAME
+```
+
+Run a bruteforcer against a host:
+
+```shell
+ronin-brute run ftp -U usernames.txt -P passwords.txt -p host=example.com
 ```
 
 ## Examples
