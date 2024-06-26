@@ -62,6 +62,7 @@ $ ronin-brute list
   imap
   mysql
   pop3
+  redis
   ssh
   telnet
 ```
