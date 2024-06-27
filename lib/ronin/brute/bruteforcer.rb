@@ -226,10 +226,8 @@ module Ronin
         bruteforced_credentials = nil
 
         barrier.async do |producer_task|
-          @usernames.each do |username|
-            @passwords.each do |password|
-              credentials << [username,password]
-            end
+          each_credential do |username,password|
+            credentials << [username,password]
           end
 
           # send the stop messages
@@ -281,13 +279,11 @@ module Ronin
         bruteforced_usernames   = Set.new
 
         task.async do |producer_task|
-          @usernames.each do |username|
-            @passwords.each do |password|
-              # skip the username if it's already been bruteforced
-              break if bruteforced_usernames.include?(username)
+          each_credential do |username,password|
+            # skip the username if it's already been bruteforced
+            break if bruteforced_usernames.include?(username)
 
-              credentials << [username,password]
-            end
+            credentials << [username,password]
           end
 
           # send the stop messages
@@ -308,6 +304,27 @@ module Ronin
         end
 
         return bruteforced_credentials
+      end
+
+      #
+      # Enumerates through each username and password combination.
+      #
+      # @yield [username, password]
+      #   The given block will be passed every username and password
+      #   combination.
+      #
+      # @yieldparam [String] username
+      #
+      # @yieldparam [String] password
+      #
+      # @api private
+      #
+      def each_credential
+        @usernames.each do |username|
+          @passwords.each do |password|
+            yield username, password
+          end
+        end
       end
 
       #
