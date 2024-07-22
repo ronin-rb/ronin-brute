@@ -38,7 +38,7 @@ dependencies:
   wordlist: ~> 1.0
   # Ronin dependencies:
   ronin-support: ~> 1.0
-  ronin-core: ~> 0.2.0.rc1
+  ronin-core: ~> 0.2
   ronin-repos: ~> 0.1
 
 development_dependencies:
