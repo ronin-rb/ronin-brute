@@ -22,7 +22,8 @@ require 'ronin/brute/tcp_bruteforcer'
 require 'ronin/brute/mixins/login_timeout'
 require 'ronin/brute/params/database'
 
-require 'postgre-pr/connection'
+require 'db/client'
+require 'db/postgres'
 
 module Ronin
   module Brute
@@ -57,16 +58,28 @@ module Ronin
       #
       def bruteforce(credentials)
         database = params[:database]
-        uri      = "tcp://#{host}:#{port}"
 
         while (username, password = credentials.dequeue)
-          connection = login_timeout do
-            PostgresPR::Connection.new(
-              database, username, password, uri
-            )
+          client = DB::Client.new(
+                     DB::Postgres::Adapter.new(
+                       database: database,
+                       host:     host,
+                       port:     port,
+                       username: username,
+                       password: password
+                     )
+                   )
+
+          session = client.session
+
+          result = login_timeout do
+            session.query('SELECT (1);').call
+          rescue DB::Postgres::Error
+          ensure
+            session.close
           end
 
-          if connection
+          if result
             yield username, password
           end
         end

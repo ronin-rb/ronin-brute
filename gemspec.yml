@@ -35,7 +35,8 @@ dependencies:
   net-telnet: ~> 0.2
   net-ssh: ~> 7.2
   ruby-mysql: ~> 4.1
-  sequel-postgres-pr: ~> 0.9
+  db: ~> 0.10
+  db-postgres: ~> 0.7
   wordlist: ~> 1.0
   # Ronin dependencies:
   ronin-support: ~> 1.0
