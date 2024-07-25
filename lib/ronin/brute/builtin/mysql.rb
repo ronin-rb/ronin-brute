@@ -56,9 +56,9 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        host     = params[:host]
-        port     = params[:port]
-        database = params[:database]
+        host     = self.host
+        port     = self.port
+        database = self.database
 
         while (username, password = credentials.dequeue)
           connection = login_timeout do

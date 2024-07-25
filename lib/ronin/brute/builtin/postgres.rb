@@ -57,7 +57,9 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        database = params[:database]
+        host     = self.host
+        port     = self.port
+        database = self.database
 
         while (username, password = credentials.dequeue)
           client = DB::Client.new(
