@@ -21,6 +21,8 @@
 require 'ronin/brute/tcp_bruteforcer'
 require 'ronin/brute/mixins/login_timeout'
 require 'ronin/brute/params/database'
+require 'ronin/support/network/ip'
+require 'ronin/support/network/dns'
 
 require 'db/client'
 require 'db/mariadb'
@@ -57,7 +59,7 @@ module Ronin
       #   A valid password.
       #
       def bruteforce(credentials)
-        host     = self.host
+        host     = ip_address
         port     = self.port
         database = self.database
 
@@ -87,6 +89,25 @@ module Ronin
         end
       end
 
+      #
+      # Resolves the `host` param to an IP address.
+      #
+      # @return [String]
+      #   The IP address for the `host` param, or the `host` param value if
+      #   it's already an IP address.
+      #
+      # @raise [Ronin::Core::Params::ValidationError]
+      #   Could not resolve the `host` param value.
+      #
+      def ip_address
+        case (host = self.host)
+        when Support::Network::IP::REGEX
+          host
+        else
+          Support::Network::DNS.get_address(host) ||
+            raise(Core::Params::ValidationError,"could not resolve hostname: #{host.inspect}")
+        end
+      end
     end
   end
 end
