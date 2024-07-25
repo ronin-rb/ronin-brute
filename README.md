@@ -117,8 +117,8 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 * [async-http] ~> 0.60
 * [net-telnet] ~> 0.2
 * [net-ssh] ~> 7.2
-* [ruby-mysql] ~> 4.1
 * [db] ~> 0.10
+* [db-mariadb] ~> 0.10
 * [db-postgres] ~> 0.7
 * [wordlist] ~> 1.0
 * [ronin-support] ~> 1.0
@@ -177,8 +177,8 @@ along with ronin-brute.  If not, see <https://www.gnu.org/licenses/>.
 [async-http]: https://github.com/socketry/async-http#readme
 [net-telnet]: https://github.com/ruby/net-telnet#readme
 [net-ssh]: https://github.com/net-ssh/net-ssh#readme
-[ruby-mysql]: https://gitlab.com/tmtms/ruby-mysql#readme
 [db]: https://github.com/socketry/db#readme
+[db-mariadb]: https://gitlab.com/socketry/db-mariadb#readme
 [db-postgres]: https://github.com/socketry/db-postgres#readme
 [wordlist]: https://github.com/postmodern/wordlist.rb#readme
 [ronin-support]: https://github.com/ronin-rb/ronin-support#readme

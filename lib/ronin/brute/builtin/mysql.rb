@@ -22,7 +22,8 @@ require 'ronin/brute/tcp_bruteforcer'
 require 'ronin/brute/mixins/login_timeout'
 require 'ronin/brute/params/database'
 
-require 'mysql'
+require 'db/client'
+require 'db/mariadb'
 
 module Ronin
   module Brute
@@ -61,12 +62,26 @@ module Ronin
         database = self.database
 
         while (username, password = credentials.dequeue)
-          connection = login_timeout do
-            Mysql.connect("mysql://#{username}:#{password}@#{host}:#{port}/#{database}")
-          rescue Mysql::ServerError::AccessDeniedError
+          client = DB::Client.new(
+                     DB::MariaDB::Adapter.new(
+                       database: database,
+                       host:     host,
+                       port:     port,
+                       username: username,
+                       password: password
+                     )
+                   )
+
+          session = client.session
+
+          result = login_timeout do
+            session.query('SELECT (1);').call
+          rescue DB::MariaDB::Error
+          ensure
+            session.close
           end
 
-          if connection
+          if result
             yield username, password
           end
         end
