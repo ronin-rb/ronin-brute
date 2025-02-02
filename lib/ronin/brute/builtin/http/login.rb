@@ -87,18 +87,18 @@ module Ronin
 
           failure_status   = params[:failure_status]
           failure_redirect = params.fetch(:failure_redirect) do
-                              if ssl? then URI::HTTPS
-                              else         URI::HTTP
-                              end
+                               uri_class = if ssl? then URI::HTTPS
+                                           else         URI::HTTP
+                                           end
 
-                              # default the failed login redirect to the login
-                              # form's own URL.
-                              uri_class.build(
-                                host: host,
-                                port: port,
-                                path: path
-                              ).to_s
-                            end
+                               # default the failed login redirect to the login
+                               # form's own URL.
+                               uri_class.build(
+                                 host: host,
+                                 port: port,
+                                 path: path
+                               ).to_s
+                             end
           failure_string   = params[:failure_string]
 
           initial_response = http.get(path)
