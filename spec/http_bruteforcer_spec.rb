@@ -161,4 +161,36 @@ describe Ronin::Brute::HTTPBruteforcer do
   end
 
   describe "#http_connect"
+
+  describe "#url_for" do
+    let(:path) { "/example/path" }
+
+    context "for SSL/TLS connections" do
+      subject do
+        test_class.new(
+          params:    params.merge(ssl: true),
+          usernames: usernames,
+          passwords: passwords
+        )
+      end
+
+      it "must return URI::HTTPS object" do
+        expect(subject.url_for(path)).to eq(URI::HTTPS.build(host: subject.host, path: path, port: subject.port))
+      end
+    end
+
+    context "for non SSL/TLS connections" do
+      subject do
+        test_class.new(
+          params:    params.merge(ssl: false),
+          usernames: usernames,
+          passwords: passwords
+        )
+      end
+
+      it "must return URI::HTTP object" do
+        expect(subject.url_for(path)).to eq(URI::HTTP.build(host: subject.host, path: path, port: subject.port))
+      end
+    end
+  end
 end
