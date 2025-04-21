@@ -189,8 +189,11 @@ module Ronin
       # @return [URI::HTTP, URI::HTTPS]
       #
       def url_for(path)
-        scheme = ssl? ? URI::HTTPS : URI::HTTP
-        scheme.build(host: host, port: port, path: path)
+        uri_class = if ssl? then URI::HTTPS
+                    else         URI::HTTP
+                    end
+      
+        uri_class.build(host: host, port: port, path: path)
       end
 
     end
