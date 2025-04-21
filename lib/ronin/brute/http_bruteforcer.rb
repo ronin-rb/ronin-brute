@@ -190,7 +190,7 @@ module Ronin
       #
       def url_for(path)
         scheme = ssl? ? URI::HTTPS : URI::HTTP
-        scheme.build(host: host, path: path, port: port)
+        scheme.build(host: host, port: port, path: path)
       end
 
     end
