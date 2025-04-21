@@ -175,7 +175,7 @@ describe Ronin::Brute::HTTPBruteforcer do
       end
 
       it "must return URI::HTTPS object" do
-        expect(subject.url_for(path)).to eq(URI::HTTPS.build(host: subject.host, path: path, port: subject.port))
+        expect(subject.url_for(path)).to eq(URI::HTTPS.build(host: subject.host, port: subject.port, path: path))
       end
     end
 
@@ -189,7 +189,7 @@ describe Ronin::Brute::HTTPBruteforcer do
       end
 
       it "must return URI::HTTP object" do
-        expect(subject.url_for(path)).to eq(URI::HTTP.build(host: subject.host, path: path, port: subject.port))
+        expect(subject.url_for(path)).to eq(URI::HTTP.build(host: subject.host, port: subject.port, path: path))
       end
     end
   end
