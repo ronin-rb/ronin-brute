@@ -180,6 +180,22 @@ module Ronin
 
       alias connect http_connect
 
+      #
+      # Builds URI from host, port, ssl? and given path.
+      #
+      # @param [String] path
+      #   Path to append to the URI.
+      #
+      # @return [URI::HTTP, URI::HTTPS]
+      #
+      def url_for(path)
+        uri_class = if ssl? then URI::HTTPS
+                    else         URI::HTTP
+                    end
+
+        uri_class.build(host: host, port: port, path: path)
+      end
+
     end
   end
 end
