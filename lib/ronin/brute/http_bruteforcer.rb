@@ -192,6 +192,7 @@ module Ronin
         scheme = ssl? ? URI::HTTPS : URI::HTTP
         scheme.build(host: host, path: path, port: port)
       end
+
     end
   end
 end
