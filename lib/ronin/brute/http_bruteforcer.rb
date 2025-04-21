@@ -192,7 +192,7 @@ module Ronin
         uri_class = if ssl? then URI::HTTPS
                     else         URI::HTTP
                     end
-      
+
         uri_class.build(host: host, port: port, path: path)
       end
 
