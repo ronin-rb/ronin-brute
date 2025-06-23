@@ -113,7 +113,8 @@ Ronin::Brute::HTTP::BasicAuth.find_first(
 
 * [Ruby] >= 3.2.0
 * [async] ~> 2.0
-* [async-io] ~> 1.0
+* [io-endpoint] ~> 0.15
+* [io-stream] ~> 0.8
 * [async-http] ~> 0.60
 * [net-telnet] ~> 0.2
 * [net-ssh] ~> 7.2
